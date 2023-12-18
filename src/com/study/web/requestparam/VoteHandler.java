@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
+import java.util.Objects;
 
 @RequestMapping(value = "/vote")
 @Controller
@@ -55,5 +57,37 @@ public class VoteHandler {
         String username = request.getParameter("username");
         System.out.println(username);
         return "sucess";
+    }
+
+
+    //将提交的数据->封装成java对象->springmvc会自动把数据放到request域
+    @RequestMapping(value = "/vote05")
+    public String test05(Master master,HttpServletRequest request){
+        //1.springmvc会自动把获取的model模型，放入到request域中，名字就是master
+        //2.也可手动将master放入到request
+
+        request.setAttribute("address","beijing");
+
+        //修改request域中
+        master.setName("nono");
+
+        //SpringMVC默认存放对象属性到request域中，属性名是类型名首字母小写
+
+        return "vote_ok";
+    }
+
+    //通过Map<String,Object>设置数据到request域
+
+    @RequestMapping(value = "/vote06")
+    public String test06(Master master, Map<String, Object> map){
+        //通过map对象添加属性到request域中
+        //原理：springmvc会遍历map，然后将map的k-v存放到request域中
+        map.put("address","tianjin");
+        //修改request域中
+        master.setName("nono");
+
+        //SpringMVC默认存放对象属性到request域中，属性名是类型名首字母小写
+
+        return "vote_ok";
     }
 }

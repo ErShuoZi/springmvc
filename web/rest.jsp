@@ -48,6 +48,8 @@
 <br/>
 
 
+
+
 <h3>put</h3>
 <%--<form action="book/updateBook/123" method="put">--%>
 <%--    <input type="submit" value="修改  "/>--%>
@@ -58,5 +60,20 @@
     <input type="hidden" name="_method">
 </form>
 <br/>
+
+<a href="vote/vote05">哈哈</a>
+<form action="vote/vote05">
+    <input name="id" type="text"/>
+    <input name="name" type="text"/>
+    <input type="submit" value="提交" />
+</form>
+
+
+
+<form action="vote/vote06">
+    <input name="id" type="text"/>
+    <input name="name" type="text"/>
+    <input type="submit" value="提交" />
+</form>
 </body>
 </html>
