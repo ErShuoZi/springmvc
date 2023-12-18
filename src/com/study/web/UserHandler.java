@@ -2,6 +2,7 @@ package com.study.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -9,11 +10,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/user")
 @Controller  //處理器/控制器，注入到容器中
 public class UserHandler {
-    @RequestMapping(value = "/buy",method = RequestMethod.POST)
- public String buy(){
-     System.out.println("購買商品");
-     return "sucess";
- }
+//    @RequestMapping(value = "/buy",method = RequestMethod.POST)
+// public String buy(){
+//     System.out.println("購買商品");
+//     return "sucess";
+// }
+
+    @PostMapping(value = "/buy")  //等价于   @RequestMapping(value = "/buy",method = RequestMethod.POST)
+    public String buy(){
+        System.out.println("購買商品");
+        return "sucess";
+    }
 
     @RequestMapping(value = "/search",params = "bookId",method = RequestMethod.GET)
  public String search(String bookId) {
