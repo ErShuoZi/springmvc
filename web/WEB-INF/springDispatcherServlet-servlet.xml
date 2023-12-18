@@ -12,6 +12,11 @@
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+<!--    配置自定义视图解析器-->
+<!--    order越大越靠后执行，优先级越底-->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <property name="order" value="99"/>
+    </bean>
 <!--    能支持SpringMVC高级功能，比如JSR303校验，映射动态请求-->
     <mvc:annotation-driven />
 <!--    将springmvc不能处理的请求交给tomcat，比如请求css，js等-->
