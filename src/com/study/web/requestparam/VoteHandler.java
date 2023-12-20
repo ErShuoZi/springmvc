@@ -88,6 +88,6 @@ public class VoteHandler {
 
         //SpringMVC默认存放对象属性到request域中，属性名是类型名首字母小写
 
-        return "vote_ok";
+        return "vote_ok"; //请求转发
     }
 }
