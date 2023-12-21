@@ -6,9 +6,25 @@
 
 
     <!--    配置中文乱码过滤器-->
+    
+<!--    自定义-->
+<!--    <filter>-->
+<!--        <filter-name>chineseFilter</filter-name>-->
+<!--        <filter-class>com.study.web.filter.MyCharacterFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>chineseFilter</filter-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </filter-mapping>-->
+
+<!--    Spring内置的中文过滤器-->
     <filter>
         <filter-name>chineseFilter</filter-name>
-        <filter-class>com.study.web.filter.MyCharacterFilter</filter-class>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>chineseFilter</filter-name>
